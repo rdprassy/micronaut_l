@@ -12,10 +12,15 @@ public class HelloWorldController {
 
 
     // constructor based service
-    @Inject
-    private HelloWorldService service;
+//    @Inject
+    private final HelloWorldService service;
+    private final GreetingConfig config;
 
-//     constructor based injection highly recommened during production
+    public HelloWorldController(HelloWorldService service, GreetingConfig config) {
+        this.service = service;
+        this.config = config;
+    }
+    //     constructor based injection highly recommened during production
 //    public HelloWorldController(final HelloWorldService service) {
 //        this.service = service;
 //    }
@@ -27,5 +32,16 @@ public class HelloWorldController {
 
 //        return "Hello World";
         }
+
+
+        @Get("/de")
+    public String greetInGerman(){
+        return config.getDe();
+        }
+
+    @Get("/en")
+    public String greetInEnglish(){
+        return config.getEn();
+    }
 
 }

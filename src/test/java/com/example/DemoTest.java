@@ -31,4 +31,17 @@ class DemoTest {
     }
 
 
+    @Test
+    void returnsGermanGreeting() {
+        final String result = client.toBlocking().retrieve("/hello/de");
+        Assertions.assertEquals("Hallo", result);
+    }
+
+
+    @Test
+    void returnsEnglishGreeting() {
+        final String result = client.toBlocking().retrieve("/hello/en");
+        Assertions.assertEquals("Hello", result);
+    }
+
 }
