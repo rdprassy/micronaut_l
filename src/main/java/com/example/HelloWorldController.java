@@ -5,7 +5,8 @@ import io.micronaut.http.annotation.Get;
 
 import javax.inject.Inject;
 
-@Controller("/hello")
+//@Controller("/hello")
+@Controller("${hello.controller.path:/hello}")
 public class HelloWorldController {
 
 
