@@ -27,7 +27,7 @@ class DemoTest {
     @Test
     void testHelloResponse() {
         final String result = client.toBlocking().retrieve("/hello");
-        Assertions.assertEquals("Hello World", result);
+        Assertions.assertEquals("Hello from service", result);
     }
 
 
